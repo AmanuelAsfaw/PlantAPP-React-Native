@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Dimensions, FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Dimensions, FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from "react-native"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from "../data/colors"
 import plants from "../data/plants";
 
 const width = Dimensions.get('screen').width/2 - 30
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const categories = ['All', 'ORGANIC', 'INDOORS', 'SYNTHETIC', 'ORGANIC', 'INDOORS', 'SYNTHETIC']
     const [categoryIndex, setCategoryIndex] = useState(0)
 
@@ -26,7 +26,44 @@ const HomeScreen = () => {
 
     const Card = ({plant}) => {
         return (
-            <View style={style.card}><Text>{plant.name}</Text></View>
+            <TouchableOpacity onPress={() => navigation.navigate('Details', plant)}>
+                <View style={style.card}>
+                    <View style={{alignItems: 'flex-end'}}>
+                        <View style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: 15,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: plant.like? 'rgba(245, 42, 42, .2)': 'rgba(0, 0, 0, 0.2)'
+                        }}>
+                            <Icon name="favorite" size={18} color={ plant.like? COLORS.red: COLORS.dark}/>
+                        </View>                
+                    </View>
+                    <View style={{ height: 100, alignItems: 'center'}}>
+                        <Image style={{ flex: 1, resizeMode: 'contain'}} source={plant.img}/>
+                    </View>
+                    <Text style={{ fontWeight: 'bold', fontSize: 17, marginTop: 10}}>{plant.name}</Text>
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginTop: 5
+                    }}>
+                        <Text style={{ fontSize: 19, fontWeight: 'bold'}}>${plant.price}</Text>
+                        <View style={{
+                            height: 25,
+                            width: 25,
+                            backgroundColor: COLORS.green,
+                            borderRadius: 5,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            alignContent: 'center'
+                        }}>
+                            <Text style={{ fontSize: 22, color: COLORS.white, fontWeight: 'bold'}}>+</Text>
+                        </View>
+                    </View>
+                </View>
+            </TouchableOpacity>
         )
     }
     return(
