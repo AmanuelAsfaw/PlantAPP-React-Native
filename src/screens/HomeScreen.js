@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Dimensions, FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from "../data/colors"
+import plants from "../data/plants";
+
+const width = Dimensions.get('screen').width/2 - 30
 
 const HomeScreen = () => {
     const categories = ['All', 'ORGANIC', 'INDOORS', 'SYNTHETIC', 'ORGANIC', 'INDOORS', 'SYNTHETIC']
@@ -18,6 +21,12 @@ const HomeScreen = () => {
                     ))}
                 </ScrollView>  
             </View>
+        )
+    }
+
+    const Card = ({plant}) => {
+        return (
+            <View style={style.card}><Text>{plant.name}</Text></View>
         )
     }
     return(
@@ -39,6 +48,15 @@ const HomeScreen = () => {
                 </View>
             </View>
             <CategoryList/>
+            <FlatList 
+                columnWrapperStyle={{justifyContent: 'space-between'}}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    marginTop: 10,
+                    paddingBottom: 50
+                }}
+                numColumns={2} data={plants} 
+                renderItem={({item}) => <Card plant={item}/>}/>
         </SafeAreaView>
     )
 } 
@@ -90,6 +108,15 @@ const style = StyleSheet.create({
         paddingBottom: 5,
         borderBottomWidth: 4,
         borderColor: COLORS.green
+    },
+    card: {
+        height: 255,
+        backgroundColor: COLORS.light,
+        width,
+        marginHorizontal: 2,
+        borderRadius: 10,
+        marginBottom: 20,
+        padding: 15,
     }
 })
 export default HomeScreen
