@@ -4,7 +4,7 @@ const plants = [
       name: 'Succulent Plant',
       price: '39.99',
       like: true,
-      img: require('../assets/plant1.png'),
+      img: require('../../assets/plants/plant1.png'),
       about:
         'Succulent Plantis one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
@@ -14,7 +14,7 @@ const plants = [
       name: 'Dragon Plant',
       price: '29.99',
       like: false,
-      img: require('../assets/plant2.png'),
+      img: require('../../assets/plants/plant2.png'),
       about:
         'Dragon Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
@@ -23,7 +23,7 @@ const plants = [
       name: 'Ravenea Plant',
       price: '25.99',
       like: false,
-      img: require('../assets/plant3.png'),
+      img: require('../../assets/plants/plant3.png'),
       about:
         'Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
@@ -33,7 +33,7 @@ const plants = [
       name: 'Potted Plant',
       price: '25.99',
       like: true,
-      img: require('../assets/plant4.png'),
+      img: require('../../assets/plants/plant4.png'),
       about:
         'Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
@@ -42,7 +42,7 @@ const plants = [
       name: 'Ravenea Plant',
       price: '50.99',
       like: true,
-      img: require('../assets/plant5.png'),
+      img: require('../../assets/plants/plant5.png'),
       about:
         'Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
@@ -51,7 +51,7 @@ const plants = [
       name: 'Dragon Plant',
       price: '50.99',
       like: false,
-      img: require('../assets/plant6.png'),
+      img: require('../../assets/plants/plant6.png'),
       about:
         'Potted Plant Ravenea Plant one of the most popular and beautiful species that will produce clumpms. The storage of water often gives succulent plants a more swollen or fleshy appearance than other plants, a characteristic known as succulence.',
     },
